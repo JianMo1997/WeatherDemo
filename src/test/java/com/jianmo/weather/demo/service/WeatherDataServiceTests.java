@@ -15,6 +15,8 @@ public class WeatherDataServiceTests {
     @Test
     public void testGetDataByCityId(){
         WeatherResponse response = weatherDataService.getDataByCityName("金华");
+        System.out.println(response.getData());
+        System.out.println(response.getStatus());
         System.out.println(response.getDesc());
     }
 }

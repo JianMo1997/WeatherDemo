@@ -24,6 +24,12 @@ public class WeatherController {
 //    public WeatherResponse getReportByCityName(@PathVariable("cityName") String cityName){
 //        return  weatherDataService.getDataByCityName(cityName);
 //    }
+
+    /**
+     * 返回json格式
+     * @param request
+     * @return
+     */
     @RequestMapping("/city")
     public JSONObject getResponse(HttpServletRequest request){
         WeatherDao weatherDao=new WeatherDao();

@@ -9,7 +9,7 @@ public class WeatherDao {
     private WeatherDataService weatherDataService;
 
     public  WeatherResponse getResportByCityId(String cityId){
-        return weatherDataService.getDataByCityName(cityId);
+        return weatherDataService.getDataByCityId(cityId);
     }
     public  WeatherResponse getResportByCityName(String cityName){
         return weatherDataService.getDataByCityName(cityName);
