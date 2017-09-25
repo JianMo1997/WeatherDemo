@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang=zh-cmn-Hans>
+<head>
+    <meta charset="UTF-8">
+    <title>天气页面</title>
+    <link rel="stylesheet" href="https://g.alicdn.com/sj/dpl/1.4.3/css/sui.min.css"/>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1429753170_0792055.css" type="text/css" charset="utf-8">
+    <link rel=dns-prefetch href=//s1.wacdn.com>
+    <link href="//s1.wacdn.com/n/8f1e93d060ea05c05679e7.css" rel="stylesheet">
+    <link href="//s1.wacdn.com/n/514642d5e176846169624f.css" rel="stylesheet">
+    <script src="https://g.alicdn.com/sj/bunting/0.8.0/js/libs/jquery/jquery.js"></script>
+    <script src="https://g.alicdn.com/sj/dpl/1.4.3/js/sui.min.js"></script>
+    <script src="https://g.alicdn.com/sj/openplatform/1.4.4/js/page/framework.js"></script>
+    <style type="text/css">
+        #apiTestButton{
+            background-color: #5eb5fe;
+            border: 1px solid #eff8f2;
+            border-radius: 10px;
+            color: white;
+        }
+        h3{
+            color:cornflowerblue ;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="//g.alicdn.com/sj/isvportal/1.0.9/apitools/apitools.css" />
+</head>
+<div class="maincontent">
+    <table style="border-collapse:collapse">
+        <tr>
+            <br>
+            <td valign="top">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <table class="parameters" width="500" border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                    <h3>查询天气</h3>
+                                </tr>
+                                <tr>
+                                    <td width="160" align="right">选择查询方式</td>
+                                    <td width="340">
+                                        <select id="format" class="format" name="format" style="width: 195px;">
+                                            <option value="">--请选择--</option>
+                                            <option value="cityname">城市名</option>
+                                            <option value="cityid">城市id</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tbody id="trs">
+                                </tbody>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="500" border="0" cellpadding="4" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                    <td width="160" style="line-height: 200%">&nbsp;</td>
+                                    <td width="340" align="left" style="line-height: 75px">
+                                        <input id="apiTestButton" type="submit" value="提交"  style="width:200px;height:40px;*padding-top:3px;border:#666666 0px solid;cursor:pointer;">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td valign="top">
+                <br>
+                查询结果
+                <br>
+                <textarea name="resultShow" id="resultShow" cols="90" rows="13" readonly></textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="application/javascript">
+    var data={
+     'cityname':['城市名'],
+     'cityid':['城市id'],
+    }
+    function addCity() {
+        var value=$('#format option:selected').val()
+        html="";
+        if (value != ''){
+            for (var i=0;i<data[value].length;i++){
+                if (data[value][i]!==''){
+                    console.log(data[value][i]);
+                    html += "<tr>" +
+                        "<td align='right'>"+data[value][i]+"</td>"+
+                        "<td><input type='text' id='"+data[value][i]+ "' name='"+data[value][i]+"' placeholder='必填'></td>" +
+                        "</tr>"
+                }
+            }
+            $('#trs').html(html)
+        }
+    }
+    $('#format').on("change",addCity)
+
+    function getParameters(format){
+        var sendData=new Object()
+        sendData['format']=format
+
+        for (var i = 0;i<data[format].length;i++){
+            if(data[format][i]!==''){
+                sendData[data[format][i]] = $("#"+data[format][i]).val()
+            }
+        }
+        return sendData
+    }
+    
+    $('#apiTestButton').on("click",function () {
+        var format=$('#format').val()
+        alert(format)
+        $.ajax({
+            url:'/weather/city',
+            method:'GET',
+            data:getParameters(format),
+            success:function (data) {
+                console.log(data);
+                if (data.code == 0){
+                    $('#resultShow').html(JSON.stringify(data.response,undefined,2))
+                }else{
+                    console.log(data.error())
+                    alert("出错")
+                }
+            }
+        })
+    })
+
+</script>
+</html>
