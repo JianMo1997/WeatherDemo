@@ -40,9 +40,9 @@ public class WeatherController {
         String cityName=request.getParameter("城市名");
         logger.info(cityId);
         logger.info(cityName);
-        if ("cityName".equals(format)){
+        if ("cityname".equals(format)){
            jsonObject.put("response",weatherDao.getResportByCityId(cityId));
-        }else if ("cityId".equals(format)){
+        }else if ("cityid".equals(format)){
            jsonObject.put("response",weatherDao.getResportByCityName(cityName));
         }else {
             logger.info("错误，请查看问题");
