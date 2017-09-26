@@ -121,7 +121,6 @@
     
     $('#apiTestButton').on("click",function () {
         var format=$('#format').val()
-        alert(format)
         $.ajax({
             url:'/weather/city',
             method:'GET',
