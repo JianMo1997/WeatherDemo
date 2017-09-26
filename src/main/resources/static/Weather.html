@@ -128,11 +128,7 @@
             data:getParameters(format),
             success:function (data) {
                 console.log(data);
-                if (data.code == 0){
-                    $('#resultShow').html(JSON.stringify(data.response,undefined,2))
-                }else{
-                    alert("出错")
-                }
+                $('#resultShow').html(JSON.stringify(data.response,undefined,2))
             }
         })
     })
