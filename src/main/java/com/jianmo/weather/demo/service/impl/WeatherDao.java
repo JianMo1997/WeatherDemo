@@ -1,4 +1,4 @@
-package com.jianmo.weather.demo.dao;
+package com.jianmo.weather.demo.service.impl;
 
 import com.jianmo.weather.demo.service.WeatherDataService;
 import com.jianmo.weather.demo.vo.WeatherResponse;

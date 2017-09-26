@@ -2,7 +2,7 @@ package com.jianmo.weather.demo.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.jianmo.weather.demo.dao.WeatherDao;
+import com.jianmo.weather.demo.service.impl.WeatherDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

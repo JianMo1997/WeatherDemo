@@ -1,5 +1,6 @@
 package com.jianmo.weather.demo.dao;
 
+import com.jianmo.weather.demo.service.impl.WeatherDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
