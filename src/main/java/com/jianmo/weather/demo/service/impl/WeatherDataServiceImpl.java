@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 import java.io.IOException;
 
-@Service
+@Service("WeatherDataService")
 public class WeatherDataServiceImpl implements WeatherDataService{
     Logger logger= LoggerFactory.getLogger(WeatherDataServiceImpl.class);
     @Resource
