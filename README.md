@@ -1,4 +1,5 @@
 # WeatherDemo
+### 示例图片
 ![图片](https://github.com/JianMo1997/WeatherDemo/raw/master/src/main/resources/static/image/示例图片.png "图片")
 ### 简介
 这是一个用来查询天气的小应用程序，后端代码借鉴了一些[waylau](https://github.com/waylau)，在他的基础上添加了自己的想法，使得这个项目更加美观
