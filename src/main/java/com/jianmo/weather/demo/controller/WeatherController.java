@@ -40,17 +40,4 @@ public class WeatherController {
         }
         return jsonObject;
     }
-
-
-
-//    @RequestMapping("/cityId/{cityId}")
-//    public WeatherResponse getReportByCityId(@PathVariable("cityId") String cityId){
-//        return weatherDataService.getDataByCityId(cityId);
-//    }
-
-//    @RequestMapping("/cityName/{cityName}")
-//    public WeatherResponse getReportByCityName(@PathVariable("cityName") String cityName){
-//        return  weatherDataService.getDataByCityName(cityName);
-//    }
-
 }
