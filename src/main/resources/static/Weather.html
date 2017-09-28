@@ -8,7 +8,6 @@
     <link rel=dns-prefetch href=//s1.wacdn.com>
     <link href="//s1.wacdn.com/n/8f1e93d060ea05c05679e7.css" rel="stylesheet">
     <link href="//s1.wacdn.com/n/514642d5e176846169624f.css" rel="stylesheet">
-    <script src="https://g.alicdn.com/sj/bunting/0.8.0/js/libs/jquery/jquery.js"></script>
     <script src="https://g.alicdn.com/sj/dpl/1.4.3/js/sui.min.js"></script>
     <script src="https://g.alicdn.com/sj/openplatform/1.4.4/js/page/framework.js"></script>
     <style type="text/css">
@@ -23,6 +22,10 @@
             font-size: 20px;
             text-align: center;
         }
+        #cityIdInquire{
+            text-align: center;
+        }
+
     </style>
     <link rel="stylesheet" href="//g.alicdn.com/sj/isvportal/1.0.9/apitools/apitools.css" />
 </head>
@@ -44,7 +47,7 @@
                                     <td width="160" align="right">选择查询方式</td>
                                     <td width="340">
                                         <select id="format" class="format" name="format" style="width: 195px;">
-                                            <option value="">--请选择--</option>
+                                            <option value="--请选择--">--请选择--</option>
                                             <option value="cityname">城市名</option>
                                             <option value="cityid">城市id</option>
                                         </select>
@@ -52,6 +55,9 @@
                                 </tr>
                                 <tbody id="trs">
                                 </tbody>
+                                <tr>
+                                    <td id="cityIdInquire" colspan="2"><a href="http://cj.weather.com.cn/support/Detail.aspx?id=51837fba1b35fe0f8411b6df">城市id查询</a></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </td>
@@ -86,6 +92,7 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="application/javascript">
     var data={
+        '--请选择--':[''],
      'cityname':['城市名'],
      'cityid':['城市id'],
     }
