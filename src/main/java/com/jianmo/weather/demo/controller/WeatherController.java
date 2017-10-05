@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/weather")
 public class WeatherController {
-    Logger logger= LoggerFactory.getLogger(WeatherController.class);
+    private static final Logger logger= LoggerFactory.getLogger(WeatherController.class);
     @Autowired
     private WeatherService weatherService;
     /**

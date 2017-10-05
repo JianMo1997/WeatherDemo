@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Service("WeatherDataService")
 public class WeatherDataServiceImpl implements WeatherDataService{
-    Logger logger= LoggerFactory.getLogger(WeatherDataServiceImpl.class);
+    private static final Logger logger= LoggerFactory.getLogger(WeatherDataServiceImpl.class);
     @Resource
     RestTemplate restTemplate;
 
